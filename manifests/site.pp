@@ -1,5 +1,5 @@
 node default {
   include baseconfig
   include cron-puppet
-  include docker
+  include profiles::docker
 }
