@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 ## Install Git and Puppet
+yum -y update
 yum -y install epel-release
 yum -y install git puppet
 
