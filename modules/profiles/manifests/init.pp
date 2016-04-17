@@ -55,8 +55,22 @@ class profiles::docker {
   }
 }
 
-class profiles::images {
-  docker::image { 'ubuntu': 
-    image_tag => 'precise',
+class profiles::docker::gitlab {
+  docker::image { 'gitlab/gitlab-ce': }
+
+  docker::run {'gitlab':
+    image            => 'gitlab/gitlab-ce:latest',
+    extra_parameters => ['--hostname gitlab.steviedons.com', '--publish 443:443', '--publish 80:80', '--restart always', '--volume /srv/gitlab/config:/etc/gitlab:Z', '--volume /srv/gitlab/logs:/var/log/gitlab:Z', '--volume /srv/gitlab/data:/var/opt/gitlab:Z'],
   }
 }
+
+class profiles::docker::owncloud {
+  docker::image { 'owncloud:latest': }
+
+  docker::run {'owncloud':
+    image            => 'owncloud:latest',
+    extra_parameters => ['--publish 8080:80', '--restart always', '--volume /srv/owncloud/apps:/var/www/html/apps:Z', '--volume /srv/owncloud/data:/var/www/html/data:Z', '--volume /srv/owncloud/config:/var/www/html/config:Z'],
+  }
+
+}
+

@@ -39,8 +39,9 @@ class roles {
 
 }
 
-class roles::docker {
+class roles::dockerhost {
   class {'profiles::docker': }
-  class {'profiles::images': }
+  class {'profiles::docker::gitlab': }
+  class {'profiles::docker::owncloud': }
 }
 
