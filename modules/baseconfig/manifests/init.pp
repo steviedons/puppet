@@ -28,13 +28,6 @@ class baseconfig {
     require => User['steve'],
   }
 
-  ssh_authorized_key { 'steve_ssh':
-    user    => 'steve',
-    type    => 'rsa',
-    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDYcNQ3A8x6F4v4tPtnhspywienwOjB8xUUbp9YMfiMbntnbzBPdiCAheuWfus7K5l5NZ24NKSG3A+F2G5UJ1GfUuXnQ3xwziDK6NJFDUdbRhbH0b0E1mo/Dk1wrlyYuUbCG0k8jAQaVGsSMvZW0UJQmRR+X36yL9oEplI+bykHh6tHRzRWPyss390K0TuHzwLUO0I3iYfd9XexbFl365h9i7KAnThMfCraeOvqTnERzRoJHVj5GDQQBk7zfBWXVpWWIXi3GLt3BaR0XtAYjMZouT/XtcpsQkt08nSasZBFxmksvZlEG6L2Hr8PT/7nmT+lr6vKUAoE6aZ0+i/LEfKj',
-    require => User['steve'],
-  }
-
   service { 'yum-cron':
     ensure     => running,
     enable     => true,
