@@ -55,3 +55,8 @@ class profiles::docker {
   }
 }
 
+class profiles::images {
+  docker::image { 'ubuntu': 
+    image_tag => 'precise',
+  }
+}

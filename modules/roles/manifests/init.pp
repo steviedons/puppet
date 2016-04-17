@@ -41,5 +41,6 @@ class roles {
 
 class roles::docker {
   class {'profiles::docker': }
+  class {'profiles::images': }
 }
 
