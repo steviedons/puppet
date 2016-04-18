@@ -4,7 +4,7 @@
 #
 class baseconfig {
   
-  package { ['epel-release', 'yum-cron', 'vim-enhanced', 'htop', 'tree', 'unzip', 'git', 'fail2ban', 'firewalld', 'fail2ban-firewalld']:
+  package { ['epel-release', 'yum-cron', 'vim-enhanced', 'htop', 'tree', 'unzip', 'git', 'fail2ban', 'fail2ban-firewalld']:
     ensure => present,
   }
 
@@ -44,6 +44,6 @@ class baseconfig {
   service { 'firewalld':
     ensure  => running,
     enable  => true,
-    require => Package['fail2ban']
+    require => Package['firewalld']
   }
 }
