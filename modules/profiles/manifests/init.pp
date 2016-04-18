@@ -81,7 +81,6 @@ class profiles::docker::gitlab {
 }
 
 class profiles::docker::owncloud {
-  class { 'firewalld': }
   
   docker::image { 'owncloud:latest': }
 
