@@ -41,9 +41,4 @@ class baseconfig {
     require => Package['fail2ban'],
   }
 
-  service { 'firewalld':
-    ensure  => running,
-    enable  => true,
-    require => Package['firewalld']
-  }
 }
