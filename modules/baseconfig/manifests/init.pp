@@ -40,5 +40,22 @@ class baseconfig {
     enable  => true,
     require => Package['fail2ban'],
   }
+  
+  vcsrepo {'/home/steve/.vim':
+    ensure     => present,
+    provider   => git,
+    source     => 'git://github.com/steviedons/vimrc.git',
+    owner      => 'steve',
+    submodules => true,
+    require    => User['steve'],
+  }
+
+  file { '/home/steve/.vimrc':
+    ensure  => link,
+    owner   => 'steve',
+    group   => 'steve',
+    target  => '/home/steve/.vim/.vimrc',
+    require => Vcsrepo['/home/steve/.vim'],
+  }
 
 }
